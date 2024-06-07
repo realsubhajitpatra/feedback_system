@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About The System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            height: 1000px;
+            margin: 0;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #E40E66;
+            padding: 10px;
+            color: white;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+        }
+        
+        header h1 {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav {
+            background-color: #CF0951;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #003d7a;
+        }
+
+    
+        h2 {
+            margin-bottom: 20px;
+            font-size: 34px;
+            padding-left: 600px;
+        }
+
+        footer {
+            text-align: right;
+            padding: 10px;
+            background-color: #CF0951;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>        
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="\static\logo.png" alt="Rajasthan Police Logo">
+        </div>
+        <h1>Rajasthan Police Feedback System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </nav>
+    <div class="about">
+        <h2>About the System</h2>
+        <p> This system aims to enhance accountability, transparency, and public trust within law enforcement agencies by establishing a structured mechanism for citizens to provide feedback on police interactions and services. In today's evolving societal landscape, effective communication between law enforcement and the communities they serve is essential for fostering positive relationships and improving overall safety and security.The objectives of this system are improving accountability, enhance transparency, foster public trust, and continuous improvement. The key features of the system are user-friendly interface, anonymous reporting, multiple feedback channels, feedback analysis, timely response mechanism, and reporting and accountability.The benefits of the system include enhanced community relations, improved police practices, increased public confidence, and prevention of misconduct. This system can help to identify areas where the department need to improve their services and to take corrective action. It can also help them to build trust between the the department and the community they serve.
+    </p>   
+    </div>
+    <footer>
+        <p id="datetime"></p>
+    </footer>
+    <script>
+        // Fetching current date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+        setInterval(updateDateTime, 1000);
+    </script>
+
+</body>
+</html>

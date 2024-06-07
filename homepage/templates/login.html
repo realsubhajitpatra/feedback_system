@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            height: 1000px;
+            margin: 0;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #E40E66;
+            padding: 10px;
+            color: white;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+        }
+        
+        header h1 {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav {
+            background-color: #CF0951;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #003d7a;
+        }
+
+        .container {
+            display: flex;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        form{
+            padding-left: 500px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 34px;
+            padding-left: 600px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #CF0951;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: right;
+            padding: 10px;
+            background-color: #CF0951;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>        
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="\static\logo.png" alt="Rajasthan Police Logo">
+        </div>
+        <h1>Rajasthan Police Feedback System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/give_feedback">Give Feedback</a></li>
+            <li><a href="/about">About the System</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Login Form</h2>
+    </div>
+    <div class="container">
+        <form action="/login" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+            <a href="/register"> Create a New Account</a>
+        </form>
+    </div>
+    <footer>
+        <p id="datetime"></p>
+    </footer>
+    <script>
+        // Fetching current date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+        setInterval(updateDateTime, 1000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            height: 1000px;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            background-color: #E40E66;
+            padding: 0px;
+            color: white;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+        }
+        
+        header h1 {
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav {
+            background-color: #CF0951;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #003d7a;
+        }
+        
+        .container {
+            background-color: #fff;
+            display: flex;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            font-size: 34px;
+            padding-left: 500px
+        }
+
+        form {
+            align-items: center;
+            padding-left: 500px; 
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        
+        #user_type, #rating {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #CF0951;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: right;
+            padding: 10px;
+            background-color: #CF0951;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/logo.png" alt="Rajasthan Police Logo">
+        </div>
+        <h1>Rajasthan Police Feedback System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About the System</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Feedback Recording Form</h2>
+    </div>
+    <div class="container">
+        <form action="/submit_feedback" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="user_type">User Type:</label>
+            <div id="user_type">
+                <input type="radio" id="anonymous" name="user_type" value="anonymous" required>
+                <label for="anonymous">Anonymous</label>
+                <input type="radio" id="verified" name="user_type" value="verified">
+                <label for="verified">Verified</label>
+            </div>
+            <label for="district">District:</label>
+            <select id="district" name="district">
+                <option value="">Select District</option>
+                <option value="Ajmer">Ajmer</option>
+                <option value="Beawar">Beawar</option>
+                <option value="Didwana-Kuchaman">Didwana-Kuchaman</option>
+                <option value="Kekri">Kekri</option>
+                <option value="Nagaur">Nagaur</option>
+                <option value="Shahapura"> Shahapura</option>
+                <option value="Tonk">Tonk</option>
+                <option value="Banswara">Banswara</option>
+                <option value="Dungarpur">Dungarpur</option>
+                <option value="Pratagarh">Pratagarh</option>
+                <option value="Bharatpur">Bharatpur</option>
+                <option value="Deeg">Deeg</option>
+                <option value="Dholpur">Dholpur</option>
+                <option value="Gangapur City">Gangapur City</option>
+                <option value="Karauli">Karauli</option>
+                <option value="Sawai Madhopur">Sawai Madhopur</option>
+                <option value="Anupgarh">Anupgarh</option>
+                <option value="Bikaner">Bikaner</option>
+                <option value="Hanumangarh">Hanumangarh</option>
+                <option value="Sri Ganganagar">Sri Ganganagar</option>
+                <option value="Jaipur East"> Jaipur East</option>
+                <option value="Jaipur North">Jaipur North</option>
+                <option value="Jaipur South">Jaipur South</option>
+                <option value="Jaipur West">Jaipur West</option>
+                <option value="Alwar">Alwar</option>
+                <option value="Bhiwandi">Bhiwandi</option>
+                <option value="Dausa">Dausa</option>
+                <option value="Dudu">Dudu</option>
+                <option value="Jaipur Rural">Jaipur Rural</option>
+                <option value="Khairthal-Tijara">Khairthal-Tijara</option>
+                <option value="Kotputali-Bahror">Kotputali-Bahror</option>
+                <option value="Jodhpur East">Jodhpur East</option>
+                <option value="Jodhpur West">Jodhpur West</option>
+                <option value="Balotra">Balotra</option>
+                <option value="Barmer">Barmer</option>
+                <option value="Jaisalmer">Jaisalmer</option>
+                <option value="Jodhpur Rural">Jodhpur Rural</option>
+                <option value="Phalodi">Phalodi</option>
+                <option value="Baran">Baran</option>
+                <option value="Bundi">Bundi</option>
+                <option value="Jhalawar">Jhalawar</option>
+                <option value="Kota City"> Kota City</option>
+                <option value="Kota Rural">Kota Rural</option>
+                <option value="Jalore">Jalore</option>
+                <option value="Pali">Pali</option>
+                <option value="Sanchore">Sanchore</option>
+                <option value="Sirohi">Sirohi</option>
+                <option value="Churu">Churu</option>
+                <option value="Jhunjunu">Jhunjunu</option>
+                <option value="Neem Ka Thana">Neem Ka Thana</option>
+                <option value="Sikar">Sikar</option>
+                <option value="Bhilwara">Bhilwara</option>
+                <option value="Chittorgarh">Chittorgarh</option>
+                <option value="Rajsamand">Rajsamand</option>
+                <option value="Salumber">Salumber</option>
+                <option value="Udaipur">Udaipur</option>
+            </select>
+
+            <label for="police_station">Police Station:</label>
+            <select id="police_station" name="police_station">
+                <option value="">Select Police Station</option>
+                <!-- Options will be populated based on selected district -->
+            </select>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback"></textarea>
+            
+            <label for="rating">Rate your experience:</label>
+            <div id="rating">
+                <input type="radio" id="emoji1" name="rating" value="1">
+                <label for="emoji1">😠</label>
+                <input type="radio" id="emoji2" name="rating" value="2">
+                <label for="emoji2">😦</label>
+                <input type="radio" id="emoji3" name="rating" value="3">
+                <label for="emoji3">😐</label>
+                <input type="radio" id="emoji4" name="rating" value="4">
+                <label for="emoji4">🙂</label>
+                <input type="radio" id="emoji5" name="rating" value="5">
+                <label for="emoji5">😁</label>
+            </div>
+            
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+    <footer>
+        <p>© 2023 Rajasthan Police Department. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var policeStations = {
+                "Ajmer": ["Adarsh Nagar", "Alwar Gate", "Clock Tower", "Civil Lines", "Christian Ganj", "Dargah", "Ganj", "Gegal", "Hatundi", "Jaipur Gate", "Kishangarh", "Ladpura", "Madar", "Nasirabad", "Pushkar", "Ramganj", "Roopangarh", "Shastri Nagar", "Vijay Nagar"],
+                "Beawar": ["Beawar City", "Beawar Rural", "Industrial Area", "Masuda"],
+                "Didwana-Kuchaman": ["City", "Industrial Area", "Jaswantgarh", "Kuchaman City", "Ladnun", "Mandawa", "Merta City", "Merta Road", "Nawa", "Rupangarh"],
+                "Kekri": ["City", "Industrial Area", "Jawaja", "Kekri", "Malpura", "Sarwar"],
+                "Nagaur": ["City", "Deedwana", "Jayal", "Khinwsar", "Ladnun", "Makrana", "Merta City", "Nagaur", "Nawa", "Parbatsar", "Riyan Badi"],
+                "Shahapura": ["City", "Industrial Area", "Mundwa", "Padu Kalan", "Parbatsar", "Shahapura"],
+                "Tonk": ["City", "Deoli", "Malpura", "Peeplu", "Tonk"],
+                "Banswara": ["Bagidora", "Chhoti Sarwan", "Danpur", "Garhi", "Ghatol", "Kushalgarh", "Partapur", "Sajjangarh", "Talwara"],
+                "Dungarpur": ["Aspur", "Bichhiwara", "Chikhli", "Dungarpur", "Galiakot", "Sagwara", "Simalwara"],
+                "Pratagarh": ["Arnod", "Chhotisadri", "Dhariyawad", "Peepalkhoont", "Pratagarh"],
+                "Bharatpur": ["Bayana", "Bharatpur", "Deeg", "Kumher", "Nadbai", "Nagar", "Rupwas", "Sewar"],
+                "Deeg": ["Bayana", "Deeg", "Kaman", "Nadbai"],
+                "Dholpur": ["Basedi", "Dholpur", "Rajakhera", "Sarmathura"],
+                "Gangapur City": ["Bamanwas", "Gangapur City", "Malarna Dungar", "Wazirpur"],
+                "Karauli": ["Hindaun City", "Karauli", "Mahwa", "Mandrayal", "Sapotra"],
+                "Sawai Madhopur": ["Bamanwas", "Bonli", "Chauth Ka Barwara", "Gangapur City", "Malarna Dungar", "Sawai Madhopur"],
+                "Anupgarh": ["Anupgarh", "Gharsana", "Padampur", "Raisinghnagar", "Sri Vijaynagar"],
+                "Bikaner": ["Behror", "Chandigarh", "Deshnoke", "Dungargarh", "Jasrasar", "Khajuwala", "Lunkaransar", "Nokha", "Shivbari"],
+                "Hanumangarh": ["Bhadra", "Hanumangarh", "Nohar", "Pilibanga", "Rawatsar", "Sangaria", "Tibbi"],
+                "Sri Ganganagar": ["Anupgarh", "Gharsana", "Karanpur", "Padampur", "Raisinghnagar", "Sri Ganganagar", "Sri Vijaynagar"],
+                "Jaipur East": ["Amer", "Bahroj Nagar", "Bassi", "Chandpole", "Gangapole", "Jaisinghpura Khor", "Jawahar Nagar", "Kanota", "Kho Nagorian", "Moti Doongri", "Ramganj", "Sanganer"],
+                "Jaipur North": ["Brahmapuri", "Chandpol", "Galta Gate", "Govindgarh", "Jaipur North", "Kanwar Nagar", "Kho Nagorian", "Kotputli", "Mansarovar", "Shastri Nagar"],
+                "Jaipur South": ["Barkat Nagar", "Bassi", "Civil Lines", "Gandhi Nagar", "Ghat Ki Guni", "Jaipur South", "Jawahar Circle", "Lalkothi", "Moti Doongri", "Pratap Nagar", "Sanganer", "Vidhayakpuri"],
+                "Jaipur West": ["Banipark", "Brahmpuri", "Chandpol", "Jhotwara", "Kalwar Road", "Karni Vihar", "Kotputli", "Mahesh Nagar", "Muralipura", "Shastri Nagar", "Vidhayakpuri", "Vishwakarma"],
+                "Alwar": ["Alwar", "Behror", "Bhiwadi", "Govindgarh", "Kherli", "Khushkhera", "Mundawar", "Neemrana", "Rajgarh", "Ramgarh", "Shahjahapur", "Tijara"],
+                "Bhiwandi": ["Bhiwandi", "Bhiwandi City", "Kalyan East", "Kalyan West", "Nizampur", "Padgha", "Shahapur"],
+                "Dausa": ["Bansi", "Dausa", "Lalsot", "Mahwa", "Mandawar", "Sikrai"],
+                "Dudu": ["Dudu", "Gathwari", "Malpura", "Phulera"],
+                "Jaipur Rural": ["Amber", "Bagru", "Bhankrota", "Chomu", "Jobner", "Jhotwara", "Kalwar", "Kotputli", "Shahpura", "Sodala"],
+                "Khairthal-Tijara": ["Bhiwadi", "Khairthal", "Kherli", "Khushkhera", "Neemrana", "Shahjahapur", "Tijara"],
+                "Kotputali-Bahror": ["Kotputali", "Bahror", "Neemrana"],
+                "Jodhpur East": ["Jalori Gate", "Jodhpur City", "Jodhpur East", "Mandore", "Ratanada", "Shastri Nagar", "Sodagaran Mohalla"],
+                "Jodhpur West": ["Aadarsh Nagar", "Bhatinda", "Bhopa", "Borunda", "Chaukhandi", "Chopasni Housing Board", "Chopasni Road", "Jalori Gate", "Jodhpur City", "Jodhpur West", "Mandore", "Nai Sarak"],
+                "Balotra": ["Balotra", "Guda Malani", "Pachpadra", "Samdari"],
+                "Barmer": ["Barmer", "Baytoo", "Chohtan", "Gida", "Jasol", "Pachpadra", "Sedwa", "Siwana"],
+                "Jaisalmer": ["Fatehgarh", "Jaisalmer", "Lakha", "Mool Sagar", "Pokaran", "Sam"],
+                "Jodhpur Rural": ["Banad", "Bari Salav", "Bilara", "Borunda", "Dechu", "Guda Vishnoi", "Jhanwar", "Khejarla", "Osian", "Phalodi", "Shergarh"],
+                "Phalodi": ["Balesar", "Bap", "Lohawat", "Osian", "Phalodi", "Shaitan Singh Nagar"],
+                "Baran": ["Atru", "Baran", "Chhabra", "Chhipabarod", "Kawai", "Kishanganj", "Mangrol", "Shahbad"],
+                "Bundi": ["Bundi", "Dei", "Dugari", "Hindoli", "Indergarh", "Keshoraipatan", "Nainwan", "Talera"],
+                "Jhalawar": ["Aklera", "Bhawanimandi", "Jhalarapatan", "Jhalawar", "Khanpur", "Manohar Thana", "Pirawa"],
+                "Kota City": ["Bhamashah Mandi", "Borkhera", "Civil Lines", "Dadabari", "Gumanpura", "Jawahar Nagar", "Kaithun", "Kunhadi", "Mahaveer Nagar", "Nayapura", "RK Puram", "Vigyan Nagar"],
+                "Kota Rural": ["Alnia", "Kaithun", "Kanwas", "Keshoraipatan", "Mokhampura", "Raipura", "Sangod"],
+                "Sikar": ["Bajaj Gram", "Bari Bassi", "Dhod", "Fatehpur", "Laxmangarh", "Neem Ka Thana", "Ramgarh Shekhawati", "Reengus", "Shahpura", "Sikar"],
+                "Bhilwara": ["Asind", "Bhilwara", "Bijolia", "Gulabpura", "Hurda", "Jahazpur", "Kareda", "Mandal", "Mandalgarh", "Pur", "Raipur", "Sanganer"],
+                "Rajsamand": ["Amet", "Bhima", "Kumbhalgarh", "Nathdwara", "Rajsamand", "Relmagra"],
+                "Udaipur": ["Badgaon", "Bargara", "Bhindar", "Bichhiwara", "Debari", "Fatehnagar", "Gogunda", "Jhadol", "Kherwara", "Kurabad", "Lasadiya", "Mavli", "Rishabhdev", "Salumber", "Sarda", "Sarojini Nagar", "Savina", "Surajpole", "Udaipur City", "Vallabhnagar"],
+                "Kherwara": ["Badgaon", "Bhindar", "Dabok", "Debari", "Fatehnagar", "Gogunda", "Jhadol", "Kurabad", "Kherwara", "Lasadiya", "Mavli", "Rishabhdev", "Sarda", "Savina", "Surajpole", "Udaipur"],
+                "Chittorgarh": ["Bassi", "Begun", "Bhim", "Bhupalsagar", "Chittorgarh", "Gambhiri", "Jawad", "Nimbahera", "Pratapgarh", "Rawatbhata", "Sawa", "Sirohi"],
+                "Kumbhalgarh": ["Amet", "Bhilwara", "Bhinmal", "Bithwada", "Jaswantpura", "Kumbhalgarh", "Nathdwara", "Nimbahera", "Relmagra"],
+                "Nimbahera": ["Choti Sadri", "Dungarpur", "Galiakot", "Jhalara", "Nimbahera", "Piplod", "Sagwara"],
+                "Churu": ["Churu", "Ratangarh", "Rajgarh", "Sardarshahar", "Sujangarh", "Taranagar"],
+                "Jhunjhunu": ["Bagar", "Chirawa", "Churu", "Fatehpur", "Jhunjhunu", "Khetri", "Mandawa", "Pilani", "Udaipurwati", "Buhana", "Surajgarh"],
+                "Sardarshahar": ["Churu", "Rajgarh", "Sardarshahar", "Sujangarh"],
+                "Sikar": ["Danta Ramgarh", "Fatehpur", "Laxmangarh", "Neem Ka Thana", "Ramgarh", "Sikar", "Sri Madhopur"],
+                "Sri Madhopur": ["Danta Ramgarh", "Fatehpur", "Laxmangarh", "Neem Ka Thana", "Ramgarh", "Sikar", "Sri Madhopur"],
+                "Bansur": ["Alwar", "Bansur", "Behror", "Govindgarh", "Kishangarh", "Kotputli", "Neemrana", "Shahpura"],
+                "Kotputli-Behror": ["Kotputli", "Behror", "Neemrana"],
+                "Sawai Madhopur": ["Bamanwas", "Bonli", "Gangapur City", "Khandar", "Malarna Dungar", "Sawai Madhopur"],
+                "Tonk": ["Deoli", "Malpura", "Niwai", "Peeplu", "Tonk"]
+            };
+
+            document.getElementById("district").addEventListener("change", function() {
+                var selectedDistrict = this.value;
+                var policeStationSelect = document.getElementById("police_station");
+
+                // Clear previous options
+                policeStationSelect.innerHTML = '<option value="">Select Police Station</option>';
+
+                // Add new options
+                if (selectedDistrict) {
+                    policeStations[selectedDistrict].forEach(function(station) {
+                        var option = document.createElement("option");
+                        option.value = station;
+                        option.textContent = station;
+                        policeStationSelect.appendChild(option);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

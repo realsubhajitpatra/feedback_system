@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Feedback System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #E40E66;
+            padding: 10px;
+            color: white;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: 100px;
+        }
+        
+        header h1 {
+            flex-grow: 1;
+            text-align: center;
+            margin: 0;
+        }
+        
+        nav {
+            background-color: #CF0951;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin: 0;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #003d7a;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            font-size: 34px;
+            padding-left: 60px;
+
+        }
+
+        .dashboard {
+            padding: 120px;
+            text-align: center;
+            width: 100%%;
+            height: 600px;
+            padding-left: 500px;
+            padding-right:300px;
+        }
+        
+        footer {
+            text-align: right;
+            padding: 10px;
+            background-color: #CF0951;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>      
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="\static\logo.png" alt="Rajasthan Police Logo">
+        </div>
+        <h1>Rajasthan Police Feedback System</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/submit_feedback">Give Feedback</a></li>
+            <li><a href="/about">About the System</a></li>
+        </ul>
+    </nav>
+    <section class="dashboard" class="/analysis">
+        <h2>Feedback Dashboard</h2>
+        <canvas id="feedbackChart"></canvas>
+    </section>
+    <footer>
+        <p id="datetime"></p>
+    </footer>
+    <script>
+        // Fetching current date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById('datetime').textContent = dateTimeString;
+        }
+        setInterval(updateDateTime, 1000);
+
+        // Fetching data for Chart.js
+        const ctx = document.getElementById('feedbackChart').getContext('2d');
+        const feedbackData = {{ feedback_data | safe }};
+        const feedbackChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: feedbackData.labels,
+                datasets: [{
+                    label: 'Feedback Ratings',
+                    data: feedbackData.values,
+                    backgroundColor: 'rgba(235, 139, 54, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
